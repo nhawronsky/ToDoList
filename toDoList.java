@@ -7,8 +7,6 @@ public class toDoList {
     public static void main(String[] args) {
         toDoRunner();
     }
-
-
     static void toDoRunner() {
         int ProgramStart = 0, choose;
         MyList l = new MyList();
