@@ -55,6 +55,7 @@ public class toDoList {
 class MyList{
     int task, sumOfElem = 0;
     List<String> list = new ArrayList<>();
+    Map<String, String> map= new HashMap<>();
     Scanner sc = new Scanner(System.in);
 
     void setTask(int task){ this.task = task;}
@@ -95,7 +96,8 @@ class MyList{
         }
         removeElem--;
         try{
-        list.remove(removeElem);
+            map.remove(list.get(removeElem));
+            list.remove(removeElem);
         } catch (IndexOutOfBoundsException e){
             System.out.println("In list are no element with number: " + ++removeElem);
         }
@@ -103,6 +105,7 @@ class MyList{
     void taskShowList(){
         System.out.println("Show list:");
         showList();
+        showText
     }
 
     void showList(){
@@ -110,6 +113,27 @@ class MyList{
         for(String show : list){
             System.out.println( elements + ": " + show);
             elements++;
+        }
+    }
+        void showText(){
+        try{
+            System.out.println("Show current element? Yes = 1 , No = 2");
+            System.out.print("put option: ");
+            int choose = sc.nextInt();
+            switch (choose){
+            case 1:
+                System.out.print("Choose your elem: ");
+                int chooseElem = sc.nextInt();
+                System.out.println("Title: " + list.get(chooseElem - 1));
+                System.out.println("Text: " + map.get(list.get(chooseElem-1)));
+                break;
+            case 2: break;
+            default:
+                System.out.println("You put invalid number");
+                break;
+        }
+        }catch (InputMismatchException e){
+            System.out.println("ERROR!");
         }
     }
 
