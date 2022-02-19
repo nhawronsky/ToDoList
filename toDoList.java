@@ -1,12 +1,11 @@
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class toDoList {
     public static void main(String[] args) {
         toDoRunner();
     }
+
+
     static void toDoRunner() {
         int ProgramStart = 0, choose;
         MyList l = new MyList();
@@ -77,11 +76,17 @@ class MyList{
         list.clear();
         System.out.println("Your list is clear");
     }
+
+
     void taskAdd(){
         sumOfElem++;
-        System.out.println("Put your task " + sumOfElem + ": ");
-        String addOption = sc.nextLine();
-        list.add(addOption);
+        System.out.println("Put your task " + sumOfElem + ":");
+        System.out.print("Put title: ");
+        String title = sc.nextLine();
+        System.out.print("\nPut text: ");
+        String text = sc.nextLine();
+        map.put(title, text);
+        list.add(title);
     }
     void taskRemove(){
         System.out.println("Your list:");
@@ -105,7 +110,7 @@ class MyList{
     void taskShowList(){
         System.out.println("Show list:");
         showList();
-        showText
+        showText();
     }
 
     void showList(){
@@ -115,7 +120,7 @@ class MyList{
             elements++;
         }
     }
-        void showText(){
+    void showText(){
         try{
             System.out.println("Show current element? Yes = 1 , No = 2");
             System.out.print("put option: ");
@@ -136,7 +141,6 @@ class MyList{
             System.out.println("ERROR!");
         }
     }
-
     void toDo(){
         System.out.println("1. add element");
         System.out.println("2. remove");
